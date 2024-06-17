@@ -1,10 +1,8 @@
 package com.example.SpringBoot_API.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.Set;
 
 @Entity
 @Table(
@@ -19,6 +17,9 @@ public class User {
     private String firstName;
     private String middleName;
     private String lastName;
+
+    @OneToMany(mappedBy = "assignedTo")
+    private Set<Task> tasks;
 
     public User() {
     }
